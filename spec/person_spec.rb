@@ -13,5 +13,17 @@ describe Person do
         expect(person.name_taken?).to be_false
       end
     end
+
+    context 'email' do
+      it 'says thiago@gmail.com is already taken' do
+        person = Person.new(email: 'thiago@gmail.com')
+        expect(person.email_taken?).to be_true
+      end
+
+      it 'says gomercindo@example.com is not taken' do
+        person = Person.new(email: 'gomercindo@example.com')
+        expect(person.email_taken?).to be_false
+      end
+    end
   end
 end
